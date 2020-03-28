@@ -37,18 +37,14 @@ public class HtmlController {
      * @return
      */
     @RequestMapping(value = "/index/{machineUseNo}")
-    public void index(@PathVariable(value = "machineUseNo") String machineUseNo, HttpServletResponse response) {
-        try {
-            MachineInfoQuery query = new MachineInfoQuery();
-            query.setMachineUseNo(machineUseNo);
-            List<MachineInfo> machineInfoList = machineInfoService.queryList(query).getData();
-            if (machineInfoList.size() == 0) {
-                throw new Exception("设备访问编号不存在");
-            }
-            response.sendRedirect(URL_PREFIX + "index" + URL_SUFFIX + "?devId=" + machineInfoList.get(0).getMachineNo());
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void index(@PathVariable(value = "machineUseNo") String machineUseNo, HttpServletResponse response) throws Exception {
+        MachineInfoQuery query = new MachineInfoQuery();
+        query.setMachineUseNo(machineUseNo);
+        List<MachineInfo> machineInfoList = machineInfoService.queryList(query).getData();
+        if (machineInfoList.size() == 0) {
+            throw new Exception("设备访问编号不存在");
         }
+        response.sendRedirect(URL_PREFIX + "index" + URL_SUFFIX + "?devId=" + machineInfoList.get(0).getMachineNo());
     }
 
     /**
