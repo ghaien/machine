@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表页</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+</head>
+<body>
+    <div style="width: 70%; margin-left: 15%; margin-top: 15%;" id="userList">
+        <div id="list">
+            <div class="form-inline">
+                <input type="button" value="新增" class="form-control btn-primary" @click="showAdd">
+            </div>
+            <br/>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">账号</th>
+                    <th scope="col">用户名称</th>
+                    <th scope="col">创建时间</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="user in userList">
+                    <th>{{user.account}}</th>
+                    <th>{{user.userName}}</th>
+                    <th>{{user.createTime}}</th>
+                    <th><input type="button" value="删除" @click="deleteUser(user.id)"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="detail" style="display: none; width: 100%; height: 100%; text-align: center;">
+            <div class="form-inline">
+                账号：
+                <input v-model="userInfo.account" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                昵称：
+                <input v-model="userInfo.userName" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                密码：
+                <input v-model="userInfo.password" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                <input type="button" class="form-control btn-primary" value="保存" @click="addUser">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="form-control btn-primary" value="返回" @click="showList">
+            </div>
+            <br/>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/userList.js"></script>
+</html>

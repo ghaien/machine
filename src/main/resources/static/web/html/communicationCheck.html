@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>通信检测设定</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="communicationCheck">
+        <div class="form-control" style="position: fixed; border: none; border-radius: 0; background: grey; height: 40px;">
+            <div style="position: fixed; width: 100%; left: 0%; text-align: center;"><p style="color: white; padding-top: 4px; font-weight: bold; font-size: 14px;">通信检测设定</p></div>
+            <div style="position: fixed;" @click="comeBack"><p style="color: white; font-size: 20px;">&lt;</p></div>
+        </div>
+        <div style="height: 40px;"></div>
+        <div class="row" style="padding-top: 100px; padding-left: 0; padding-right: 0;">
+            <div class="col-xs-2" style="text-align: center;">
+            </div>
+            <div class="col-xs-6">
+                1.通信断线检测:
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-xs-5" style="text-align: center;">
+            </div>
+            <div class="col-xs-3" style="text-align: center; padding: 0 0;">
+                <select class="form-control input-sm" v-model="checkDisconnectStatus">
+                    <option value="0">关闭</option>
+                    <option value="1">开启</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-xs-5" style="text-align: center;">
+            </div>
+            <div class="col-xs-2" style="text-align: center; padding: 0 0;">
+                <input type="button" class="form-control btn-sm btn-primary" value="发送命令" @click="setCheckDisconnect">
+            </div>
+            <div class="col-xs-5" style="text-align: center; padding-top: 5px; padding-left: 0;">
+                <p style="color: red;">{{setCheckDisconnectMsg}}</p>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 80px;">
+            <div class="col-xs-2" style="text-align: center;">
+            </div>
+            <div class="col-xs-6">
+                1.联动板使能:
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-xs-5" style="text-align: center;">
+            </div>
+            <div class="col-xs-3" style="text-align: center; padding: 0 0;">
+                <select class="form-control input-sm" v-model="boardEnableStatus">
+                    <option value="0">关闭</option>
+                    <option value="1">开启</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-xs-5" style="text-align: center;">
+            </div>
+            <div class="col-xs-2" style="text-align: center; padding: 0 0;">
+                <input type="button" class="form-control btn-sm btn-primary" value="发送命令" @click="setBoardEnable">
+            </div>
+            <div class="col-xs-5" style="text-align: center; padding-top: 5px; padding-left: 0;">
+                <p style="color: red;">{{setBoardEnableMsg}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/communicationCheck.js"></script>
+</html>

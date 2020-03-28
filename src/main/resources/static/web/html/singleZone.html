@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作页面</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="singleZone" style="text-align: center;">
+        <div style="float: left; width: 50%; text-align: center">English</div>
+        <div style="float: left; width: 50%; text-align: center">简中</div>
+        <br/>
+        <br/>
+        <div>
+            设备ID:
+            <select class="common-select" v-model="devId">
+                <option value="">请选择</option>
+            </select>
+            <input v-model="devId" class="common-input" disabled="disabled">
+            <input type="button" value="订阅" class="common-button-12" @click="subscribe">
+            <input type="button" value="取消订阅" class="common-button-20" @click="disSubscribe">
+            <!--<div class="form-control" style="border: 0px; width: 200px;">-->
+                <!--<p style="color: red;">{{subscribeInfo}}</p>-->
+            <!--</div>-->
+        </div>
+        <br/>
+        <div class="form-inline">
+            防区号：
+            <select class="form-control" v-model="operate.zoneNum">
+                <option value="">请选择</option>
+                <option value="1">1号防区</option>
+                <option value="2">2号防区</option>
+            </select>
+        </div>
+        <br/>
+        <br/>
+        <div class="form-inline">
+            <div id="app" style="font-size: 18px;">
+                控制操作：&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <div>
+                    <label><input type="radio" v-model="operate.operateType" value="0"/>断开联网&emsp;</label>
+                </div>
+                <div>
+                    <label><input type="radio" v-model="operate.operateType" value="1"/>撤防项&emsp;&emsp;</label>
+                </div>
+                <div>
+                    <label><input type="radio" v-model="operate.operateType" value="2"/>高压布防&emsp;</label>
+                </div>
+                <div>
+                    <label><input type="radio" v-model="operate.operateType" value="3"/>低压布防项</label>
+                </div>
+                <div>
+                    <label><input type="radio" v-model="operate.operateType" value="4"/>其他布防&emsp;</label>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="form-inline">
+            <input type="button" value="发送命令" class="form-control btn-primary" @click="sendCommand">
+            <div class="form-control" style="border: 0px; width: 200px;">
+                <p style="color: red;">{{operateInfo}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/singleZone.js"></script>
+</html>

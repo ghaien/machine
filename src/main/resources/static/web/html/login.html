@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登录页</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+</head>
+<body>
+    <div style="width: 70%; margin-left: 15%; margin-top: 15%;" id="login">
+        <div id="detail" style="width: 100%; height: 100%; text-align: center;">
+            <div class="form-inline">
+                账号：
+                <input v-model="userInfo.account" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                密码：
+                <input type="password" v-model="userInfo.password" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                <input type="button" class="form-control btn-primary" value="登录" @click="login">
+                <div class="form-control" style="border: 0px; width: 200px;">
+                    <p style="color: red;">{{loginInfo}}</p>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/login.js"></script>
+</html>

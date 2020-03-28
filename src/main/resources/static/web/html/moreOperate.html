@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作页面</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="moreOperate">
+        <div class="form-control" style="position: fixed; border: none; border-radius: 0; background: grey; height: 40px;">
+            <div style="position: fixed; width: 100%; left: 0%; text-align: center;"><p style="color: white; padding-top: 4px; font-weight: bold; font-size: 14px;">更多类型操作</p></div>
+            <div style="position: fixed;" @click="comeBack"><p style="color: white; font-size: 20px;">&lt;</p></div>
+        </div>
+        <div style="height: 40px;"></div>
+        <input class="form-control under-line" type="button" value="1.单个防区布防设定&emsp;&emsp;&emsp;&emsp;" @click="singZoneArming">
+        <input class="form-control under-line" type="button" value="2.单个防区报警延时设定&emsp;&emsp;" @click="singleZoneAlarm">
+        <input class="form-control under-line" type="button" value="3.所有防区报警延时设定&emsp;&emsp;" @click="allZoneAlarm">
+        <input class="form-control under-line" type="button" value="4.所有防区报警复位清除&emsp;&emsp;" @click="allZoneDisAlarm">
+        <input class="form-control under-line" type="button" value="5.单个防区防剪灵敏度设定&emsp;" @click="singleZoneShear">
+        <input class="form-control under-line" type="button" value="6.所有防区防剪灵敏度设定&emsp;" @click="allZoneShear">
+        <input class="form-control under-line" type="button" value="7.单个防区触网灵敏度设定&emsp;" @click="singleZoneTouch">
+        <input class="form-control under-line" type="button" value="8.所有防区触网灵敏度设定&emsp;" @click="allZoneTouch">
+        <input class="form-control under-line" type="button" value="9.单个防区高压值输出设定&emsp;" @click="singleZoneHigh">
+        <input class="form-control under-line" type="button" value="10.所有防区高压值输出设定&emsp;" @click="allZoneHigh">
+        <input class="form-control under-line" type="button" value="11.单个防区低压值输出设定&emsp;" @click="singleZoneLow">
+        <input class="form-control under-line" type="button" value="12.所有防区低压值输出设定&emsp;" @click="allZoneLow">
+        <input class="form-control under-line" type="button" value="13.系统时钟设定&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" @click="systemTime">
+        <input class="form-control under-line" type="button" value="14.定时分组设定&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" @click="timingGroup">
+        <input class="form-control under-line" type="button" value="15.通信检测设定&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" @click="communicationCheck">
+        <input class="form-control under-line" type="button" value="16.报警历史记录查询（500条）" @click="armHistory">
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/moreOperate.js"></script>
+</html>

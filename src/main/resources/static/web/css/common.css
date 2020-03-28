@@ -1,0 +1,44 @@
+/*html{ overflow-x: hidden;}*/
+
+.table-bordered > tbody > tr > th {
+    border-left: 0;
+    border-right: 0;
+}
+
+.site-hide {
+    width:auto;
+    height:auto;
+    background-color:#fff;
+    position:relative;
+}
+.site-hide b {
+    border-color: #fff #fff #666;
+    border-style: solid;
+    border-width: 1vh;
+    position:absolute;
+    top:1vw;
+}
+
+.site-show {
+    width:auto;
+    height:auto;
+    background-color:#fff;
+    position:relative;
+}
+.site-show b {
+    border-color: #666 #fff #fff;
+    border-style: solid;
+    border-width: 1vh;
+    position:absolute;
+    top:3vw;
+}
+
+#moreOperate input {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+    margin: 0 5%;
+    width: 90%;
+    height: 50px;
+}
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作页面</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="index" style="font-size: 10px;">
+        <div class="row">
+            <div class="col-xs-6" style="height: 7vw; line-height: 7vw; font-size: 2vh; text-align: center; background-color: grey; color: white;" @click="showEnglish">English</div>
+            <div class="col-xs-6" style="height: 7vw; line-height: 7vw; font-size: 2vh; text-align: center; background-color: grey; color: white; border-left: 1px solid white;" @click="showChinese">简中</div>
+        </div>
+        <!--<div class="row" style="padding: 7vw 0;">-->
+            <!--<div class="col-xs-2" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-right: 0; padding-left: 2vh; font-weight: bold;">{{font.devId}}:</div>-->
+            <!--<div class="col-xs-2" style="padding: 0 0;">-->
+                <!--<select class="form-control" style="height: 7vw; font-size: 3vw; padding: 0 0;" v-model="sendData.devId" id="machineList">-->
+                    <!--<option value="">请选择</option>-->
+                <!--</select>-->
+            <!--</div>-->
+            <!--<div class="col-xs-4" style="padding: 0 1vw;">-->
+                <!--<input class="form-control" style="height: 7vw; font-size: 3vw; padding: 1vw 2vw;" disabled="disabled" v-model="sendData.devId">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="col-xs-4" style="padding: 0 0;">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-xs-4" style="padding: 0 0;">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="button" value="订阅" class="form-control btn-primary" style="padding: 1vw 2vw; height: 7vw; font-size: 3vw;" @click="subscribe">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-xs-7" style="padding: 0 1vw;">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="button" value="取消订阅" class="form-control btn-primary" style="padding: 1vw 2vw; height: 7vw; font-size: 3vw;" @click="disSubscribe">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <div class="row" style="padding: 1vw 0;">
+            <div class="col-xs-4" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-right: 0; padding-left: 2vh; font-weight: bold;">{{font.nowArm}} :</div>
+        </div>
+        <div style="padding: 0 2vh; height: 20vw;">
+            <table class="table table-bordered">
+                <tbody>
+                <tr v-for="arm in nowArm">
+                    <th>防区 —— {{arm.zoneNo}}</th>
+                    <th style="color: red;">({{arm.armType}})</th>
+                    <th>告警时间:{{arm.createTime}}</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-6" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-right: 0; padding-left: 2vh; font-weight: bold;">所有防区快速布防设置 :</div>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-4" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 0; text-align: right;">
+                {{font.operate}} :
+            </div>
+            <div class="col-xs-3" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 1vh;">
+                <label style="margin: 0 0;"><input type="radio" value="5" style="vertical-align:middle; margin-top: 0; margin-bottom: 2px;" v-model="sendData.operateType"/>断开联网</label>
+            </div>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 1vh;">
+                <label style="margin: 0 0;"><input type="radio" value="6" style="vertical-align:middle; margin-top: 0; margin-bottom: 2px;" v-model="sendData.operateType"/>撤防</label>
+            </div>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 1vh;">
+                <label style="margin: 0 0;"><input type="radio" value="7" style="vertical-align:middle; margin-top: 0; margin-bottom: 2px;" v-model="sendData.operateType"/>高压布防</label>
+            </div>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 1vh;">
+                <label style="margin: 0 0;"><input type="radio" value="8" style="vertical-align:middle; margin-top: 0; margin-bottom: 2px;" v-model="sendData.operateType"/>低压布防</label>
+            </div>
+        </div>
+        <div class="row" style="padding: 0 0;">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding: 0 1vh;">
+                <label style="margin: 0 0;"><input type="radio" value="9" style="vertical-align:middle; margin-top: 0; margin-bottom: 2px;" v-model="sendData.operateType"/>其他布防</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3" style="padding-top: 1vw; padding-right: 6vw; padding-left: 2vw;">
+                <input type="button" style="padding: 1vw 2vw; height: 7vw; font-size: 3vw;" value="发送命令" class="form-control btn-primary" @click="sendCommand">
+            </div>
+            <div class="col-xs-4" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-top: 1vw; padding-left: 0; font-weight: bold;">
+                <p style="color: red;">{{sendResult}}</p>
+            </div>
+        </div>
+        <div class="row" style="padding: 1vh 0; display: none;" @click="hideNewArm" id="showNewArm">
+            <div class="col-xs-8 site-show" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-right: 0; padding-left: 2vh; font-weight: bold;">
+                最近5次告警记录&nbsp;<b></b>
+            </div>
+        </div>
+        <div class="row" style="padding: 1vh 0;" @click="showNewArm" id="hideNewArm">
+            <div class="col-xs-8 site-hide" style="height: 7vw; line-height: 7vw; font-size: 2vh; padding-right: 0; padding-left: 2vh; font-weight: bold;">
+                最近5次告警记录&nbsp;<b></b>
+            </div>
+        </div>
+        <div style="padding: 0 2vh; display: none;" id="newArm">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr v-for="arm in newArm">
+                        <th>防区 —— {{arm.zoneNo}}</th>
+                        <th style="color: red;">({{arm.armType}})</th>
+                        <th>告警时间:{{arm.createTime}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4" style="padding-top: 1vw; padding-right: 0; padding-left: 2vw;">
+                <input type="button" style="padding: 1vw 2vw; height: 7vw; font-size: 3vw;" value="更多类型操作>>" class="form-control btn-primary" @click="moreOperate">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/index.js"></script>
+</html>

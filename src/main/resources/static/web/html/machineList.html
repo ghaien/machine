@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设备列表页</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+</head>
+<body>
+    <div style="width: 70%; margin-left: 15%; margin-top: 5%;" id="machineList">
+        <div id="list">
+            <div class="form-inline">
+                <!--<input type="button" value="新增" class="form-control btn-primary" @click="showAdd">-->
+                <!--<input type="button" value="修改" class="form-control btn-primary" @click="showUpdate">-->
+            </div>
+            <br/>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">设备编号</th>
+                    <th scope="col">创建时间</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="machine in machineList">
+                    <th>{{machine.machineNo}}</th>
+                    <th>{{machine.createTime}}</th>
+                    <th>
+                        <!--<input type="button" value="删除" @click="deleteMachine(machine.id)">-->
+                        <input type="button" value="修改" @click="showUpdate(machine.id)">
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="detail" style="display: none; width: 100%; height: 100%; text-align: center;">
+            <div class="form-inline">
+                &emsp;设备编号&emsp;：
+                <input v-model="machineInfo.machineNo" class="form-control" disabled>
+            </div>
+            <div class="form-inline" style="margin-top: 20px;">
+                设备访问编号：
+                <input v-model="machineInfo.machineUseNo" class="form-control">
+            </div>
+            <br/>
+            <div class="form-inline">
+                <input type="button" class="form-control btn-primary" value="保存" @click="updateMachine">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="form-control btn-primary" value="返回" @click="showList">
+            </div>
+            <br/>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/machineList.js"></script>
+</html>

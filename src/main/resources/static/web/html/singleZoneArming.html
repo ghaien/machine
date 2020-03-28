@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>单个防区布防设定</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="singleZoneArming">
+        <div class="form-control" style="position: fixed; border: none; border-radius: 0; background: grey; height: 40px;">
+            <div style="position: fixed; width: 100%; left: 0%; text-align: center;"><p style="color: white; padding-top: 4px; font-weight: bold; font-size: 14px;">单个防区布防设定</p></div>
+            <div style="position: fixed;" @click="comeBack"><p style="color: white; font-size: 20px;">&lt;</p></div>
+        </div>
+        <div style="height: 40px;"></div>
+        <div class="row" style="padding-top: 130px;">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;">&emsp;&emsp;&emsp;&nbsp;防&nbsp;区&nbsp;号&nbsp;:</div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <select class="form-control input-sm" v-model="sendData.zoneNum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;">&emsp;&emsp;&emsp;操作控制:</div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <label><input type="radio" value="0" v-model="sendData.operateType"/>断开联网</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;"></div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <label><input type="radio" value="1" v-model="sendData.operateType"/>撤防</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;"></div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <label><input type="radio" value="2" v-model="sendData.operateType"/>高压布防</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;"></div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <label><input type="radio" value="3" v-model="sendData.operateType"/>低压布防</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6" style="padding: 0 0;"></div>
+                    <div class="col-xs-4" style="padding: 0 0; font-weight: bold;">
+                        <label><input type="radio" value="4" v-model="sendData.operateType"/>其他布防</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+                <input type="button" value="发送命令" class="form-control btn-primary input-sm" @click="sendCommand">
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px; text-align: center;">
+            <p style="color: red;">{{sendResult}}</p>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/singleZoneArming.js"></script>
+</html>

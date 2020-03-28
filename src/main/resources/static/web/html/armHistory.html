@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>报警历史记录查询</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/web/css/common.css">
+</head>
+<body>
+    <div id="armHistory">
+        <div class="form-control" style="position: fixed; border: none; border-radius: 0; background: grey; height: 40px;">
+            <div style="padding-top: 4px; position: fixed; width: 100%; left: 0%; text-align: center;"><p style="color: white; font-weight: bold; font-size: 14px;">报警历史记录查询</p></div>
+            <div style="position: fixed;" @click="comeBack"><p style="color: white; font-size: 20px;">&lt;</p></div>
+        </div>
+        <div style="height: 40px;"></div>
+        <div style="padding: 5px 15px; font-size: 10px;">
+            <table class="table table-bordered">
+                <tbody>
+                <tr v-for="arm in armHistory">
+                    <th>防区 —— {{arm.zoneNo}}</th>
+                    <th style="color: red;">({{arm.armType}})</th>
+                    <th>告警时间:{{arm.createTime}}</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="/lib/js/jquery/jquery-3.3.1.min.js"></script>
+<script src="/lib/js/vue/vue.min.js"></script>
+<script src="/lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="/web/js/armHistory.js"></script>
+</html>
