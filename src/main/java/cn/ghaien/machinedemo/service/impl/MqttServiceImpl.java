@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.util.Base64;
 
 /**
+ * mq业务层
+ *
  * @author guo.haien
  * @date 2019/5/31 22:46
  */

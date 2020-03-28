@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 操作接口
+ *
  * @author guo.haien
  * @Date 2018/7/4
  */
@@ -23,20 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = {"operate"})
 public class OperateController {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Autowired
     private MqttService mqttService;
 
+    /**
+     * 通过发送的参数来对设备执行指定的指令
+     *
+     * @param operateInput 发送的参数
+     * @return 发送结果
+     */
     @RequestMapping(method = RequestMethod.GET)
     public Response<String> operate(OperateInput operateInput) {
-        try {
-            mqttService.publishForDevId(operateInput);
-            return new Response<>();
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error(e.getMessage());
-            return new Response<>(ResponseCode.FAILURE);
-        }
+        // 发送消息
+        mqttService.publishForDevId(operateInput);
+        return new Response<>();
     }
 }

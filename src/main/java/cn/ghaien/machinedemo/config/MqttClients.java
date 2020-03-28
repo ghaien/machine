@@ -14,6 +14,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * mq客户端
+ *
  * @author guo.haien
  * @date 2019/5/22 23:37
  */
@@ -30,6 +32,12 @@ public class MqttClients {
 
     private static ConcurrentHashMap<String, BlockingQueue<String>> subMessageMap = new ConcurrentHashMap<>();
 
+    /**
+     * 订阅消息
+     *
+     * @param appId
+     * @param deviceId
+     */
     public void subscribe(String appId, String deviceId) {
         String clientId = MqttUtil.getRxClientId(appId, deviceId);
         String topic = MqttUtil.getRxTopic(appId, deviceId);
@@ -87,6 +95,13 @@ public class MqttClients {
         publish(appId, deviceId, JSON.toJSONString(mqttSend));
     }
 
+    /**
+     * 推送消息
+     *
+     * @param appId
+     * @param deviceId
+     * @param content
+     */
     public void publish(String appId, String deviceId, String content) {
 //        String content = "{\"confirmed\":true,\"data\":\"MDEyNDU=\",\"devEUI\":\"6688888888888888\",\"fPort\":3,\"reference\":\"test\"}";
         String topic = MqttUtil.getTxTopic(appId, deviceId);

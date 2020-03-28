@@ -10,7 +10,7 @@ var vm = new Vue({
     },
     methods: {
         comeBack: function () {
-            location.href = '/web/html/index.html?devId=' + vm.sendData.devId;
+            location.href = '/index/' + vm.sendData.devId;
         },
         singZoneArming: function () {
             location.href = '/singleZoneArming';
